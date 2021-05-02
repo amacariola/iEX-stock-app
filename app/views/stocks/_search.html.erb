@@ -1,0 +1,11 @@
+<h2 class = "mb-2">Search Stocks</h2>
+<div class = "form-field">
+<%= form_tag search_stock_path, remote: true, method: :get do %>
+  <div class = "control">
+  <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "input form-control" %></br>
+  <%= button_tag type: :submit, class: "btn btn-primary" do %>
+    <%= 'Search' %>
+  <% end %>
+  </div>
+<% end %>
+</div>

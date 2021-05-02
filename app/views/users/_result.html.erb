@@ -1,0 +1,29 @@
+<%= render 'layouts/messages' %>
+<% if @stock %>
+  <h3>Stock Info</h3>
+  <table class="table table-sm table-striped table-dark">
+    <thead>
+     <tr">
+      <th scope="col" class="text-center text-white bg-success">Ticker</th>
+      <th scope="col" class="text-center text-white">Name</th>
+      <th scope="col" class="text-center text-white bg-danger">Stock Price</th>
+      <th scope="col" class="text-center text-white bg-primary">Actions</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="text-center text-white"><%= @stock.ticker %></td>
+      <td class="text-center text-white"><%= @stock.name %></td>
+      <td class="text-center text-white"><%= @stock.latest_price %></td>
+      <td class="text-center">
+        <% if !current_user.stock_tracked(@stock.ticker) %>
+          <%= link_to 'Add', user_stocks_path(user: current_user, ticker: @stock.ticker), method: :post, class: "btn btn-success" %>
+        <% else %>
+          <span class="text-center text-bold text-danger">You are already tracking this stock.</span>
+        <% end %>
+      </td>
+     </tr>
+    </tbody>
+  </table>
+<% end %>
+</div>

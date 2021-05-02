@@ -1,0 +1,58 @@
+<html class="login-html">
+<body class="bg-main2">
+<div class="jumbotron d-flex align-items-center min-vh-100 bg-main2">
+<%= render 'layouts/navbar' %>
+  <div class="text-left text-white mb-4 pad-1"> 
+    <h1> Join over <strong class="bold">1 million+</strong> Users who choose to trade and buy stocks on us!</h1>
+       </br>
+    <h2> WHY iEX? </h2>
+    <ul class="">
+      <li class="text-white"> Trusted by 1M+ Traders worldwide </li>
+      <li class="text-white"> Voted 2011 Best Trading Platform by Googol </li>
+      <li class="text-white"> 24-hour/7-days quality customer support service </li>
+    </ul>
+  </div>
+  <div class="container-fluid p-3 my-3 text-white">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row justify-content-md-right">
+      <div class="panel panel-primary p-5 my-5 trans-1">
+        <div class="panel-body">
+        <%= render 'layouts/messages' %>
+          <form>
+            <div class="form-group">
+               <h2>Log in</h2>
+            </div>
+
+            <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', placeholder:"name@example.com" %>
+            </div>
+
+            <div class="form-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Password"  %>
+            </div>
+
+      <% if devise_mapping.rememberable? %>
+            <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+            </div>
+      <% end %>
+
+            <div class="form-group">
+        <%= f.submit "Log in", class: "btn btn-success" %>
+            </div>
+
+            <div class="form-group">
+              <p class="mb-2 text-white"> Dont have an iEX account?</p>
+            </div>
+    <%= render "devise/shared/links" %>
+          </form>
+         </div>
+       </div>
+    <% end %>
+  </div>
+</div>
+</body>
+</html>

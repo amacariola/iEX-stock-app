@@ -1,0 +1,132 @@
+<%= render 'layouts/navbar' %>
+<body class="bg-main3">
+<div class = "jumbotron d-flex fixed align-items-center min-vh-100 bg-main3">
+  <div class = "container-fluid p-3 my-3 text-white">
+    <%= render 'layouts/messages' %>
+    <h1 class="text-white"> Welcome <%= current_user.role.name %></h1>
+    <div class="content">
+      <h2 class = "is-size-3 mb-3">Top Trading Stories</h2>
+         <%= render 'users/news' %>
+    </div>
+  </div>
+  <div class = "container-fluid p-3 my-3 text-white trans-2">
+    <div class="content">
+      <h1 class ="text-white text-center">Today's Market</h1>
+      <p class="text-white text-right"><%= DateTime.now %></p>
+      <h2>Crypto-currrency</h2>
+          <table class = "table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center text-white bg-success">SYMBOL</th>
+                <th scope="col" class="text-center text-white">C-TYPE</th>
+                <th scope="col" class="text-center text-white bg-primary">HIGH</th>
+                <th scope="col" class="text-center text-white bg-danger">LOW</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.crypto_btc.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_btc.calculation_price%></td>
+                  <td class="text-center text-white"><%= Stock.crypto_btc.high_dollar %> USD</td>
+                  <td class="text-center text-white"><%= Stock.crypto_btc.low_dollar  %> USD</td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.crypto_eth.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_eth.calculation_price %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_eth.high_dollar %> USD</td>
+                  <td class="text-center text-white"><%= Stock.crypto_eth.low_dollar  %> USD</td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.crypto_ltc.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_ltc.calculation_price %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_ltc.high_dollar %> USD</td>
+                  <td class="text-center text-white"><%= Stock.crypto_ltc.low_dollar  %> USD</td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.crypto_dash.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_dash.calculation_price %></td>
+                  <td class="text-center text-white"><%= Stock.crypto_dash.high_dollar %> USD</td>
+                  <td class="text-center text-white"><%= Stock.crypto_dash.low_dollar  %> USD</td>
+                </tr>
+            </tbody>
+          </table>
+          <p class="text-white mb-2"> *Based on Real-time data from iEX/NASDAQ/NYSE Data, subject to change </p>
+    </div>
+    <div class = "container-fluid p-3 my-3 text-white">
+    <div class="content">
+      <h2>Top Company Statistics</h2>
+          <table class = "table table-striped table-dark">
+            <thead>
+              <tr class="th is-selected is-dark">
+                <th scope="col" class="text-center text-white bg-success">SYMBOL</th>
+                <th scope="col" class="text-center text-white">Name</th>
+                <th scope="col" class="text-center text-white ">IEX Real-time</th>
+                <th scope="col" class="text-center text-white ">Change Percent</th>
+                <th scope="col" class="text-center text-white ">Change</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.quotes_microsoft.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_microsoft.company_name %></td>
+                  <td class="text-center text-white">$<%= Stock.quotes_microsoft.iex_realtime_price %> USD</td>
+                  <td class="text-center text-white"><%= Stock.quotes_microsoft.change_percent_s %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_microsoft.change %></td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.quotes_apple.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_apple.company_name %></td>
+                  <td class="text-center text-white">$<%= Stock.quotes_apple.iex_realtime_price %> USD</td>
+                  <td class="text-center text-white"><%= Stock.quotes_apple.change_percent_s %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_apple.change %></td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.quotes_google.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_google.company_name %></td>
+                  <td class="text-center text-white">$<%= Stock.quotes_google.iex_realtime_price %> USD</td>
+                  <td class="text-center text-white"><%= Stock.quotes_google.change_percent_s %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_google.change %></td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.quotes_tesla.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_tesla.company_name %></td>
+                  <td class="text-center text-white">$<%= Stock.quotes_tesla.iex_realtime_price %> USD</td>
+                  <td class="text-center text-white"><%= Stock.quotes_tesla.change_percent_s %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_tesla.change %></td>
+                </tr>
+                <tr>
+                  <td class="text-center text-white"><%= Stock.quotes_amazon.symbol %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_amazon.company_name %></td>
+                  <td class="text-center text-white">$<%= Stock.quotes_amazon.iex_realtime_price %> USD</td>
+                  <td class="text-center text-white"><%= Stock.quotes_amazon.change_percent_s %></td>
+                  <td class="text-center text-white"><%= Stock.quotes_amazon.change %></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+<div>
+<div class = "container-fluid p-3 my-3 text-white">
+    <div class="content">
+      <h2 class = "is-size-3 mb-3">Market Snapshot</h2>
+          <table class = "table table-dark">
+            <thead>
+              <tr class="th is-selected is-dark">
+                <th scope="col" class="text-center text-white">Open</th>
+                <th scope="col" class="text-center text-white bg-success">Open Price</th>
+                <th scope="col" class="text-center text-white">Close</th>
+                <th scope="col" class="text-center text-white bg-danger">Close Price</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td class="text-center text-white">+0.56</td>
+                  <td class="text-center text-white">$45.678</td>
+                  <td class="text-center text-white">+ 1.234</td>
+                  <td class="text-center text-white">$34.987</td>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+</body>

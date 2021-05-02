@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm fixed-top navbar-bg px-3" role="navigation" aria-label="main navigation">
+  <div class="container-fluid">
+     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar1">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <h2 class="navbar-brand brand-h2 text-white">iEX Trading</h2>
+    <% if current_user %>
+       <div class="collapse navbar-collapse" id="navbar1">
+         <ul class="navbar-nav ml-auto topnav px-5">
+           <li class="nav-item bt px-3">
+             <a>
+        <%= link_to 'Home', root_path, class: "nav-link text-white" %>
+             </a>
+           </li>
+           <li class="nav-item bt px-3">
+             <a>
+        <% if current_user.role.name == 'Broker'%>
+          <%= link_to 'My Portfolio', my_portfolio_path, class: "nav-link text-white" %>
+        <% elsif current_user.role.name == 'Buyer'  %>
+          <%= link_to 'My Portfolio', stock_view_path, class: "nav-link text-white" %>
+        <% else %>
+          <%= link_to 'Manage Users', manage_users_path, class: "nav-link text-white" %>
+        <% end %>
+             </a>
+           </li>
+           <li class="nav-item bt px-3">
+              <a href="users/edit" class="nav-link text-white"> Account Settings</a>
+           </li>
+           <li class="nav-item bt px-3">
+             <a>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure to logout?'}, class: "btn btn-success") %>
+             </a>
+           </li>
+         </ul>
+       </div>
+  </div>
+    <% end %>
+</nav>

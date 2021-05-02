@@ -1,0 +1,235 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+
+html
+{
+  zoom: 80%;
+}
+
+.login-html
+{
+  zoom: 100%;
+}
+ 
+/* navbar styles */
+
+.brand-h2
+{
+  font-size: 39.56px;
+}
+
+.nav-item
+{
+  font-size: 20px;
+}
+/* navbar item hover effects */
+
+.bt:hover
+{
+  background: rgba(51, 243, 3, 0.4);
+  border-radius: 5px;
+}
+
+.navbar-bg
+{
+  background-color: rgba(0, 0, 0, 0.486);
+  height: 60px;
+}
+
+.sidebar1
+{
+  height: 100vh;
+  background-color:rgba(5, 5, 5, 0.674);
+  border: 2px;
+  animation: slide 3s;
+}
+
+/* backgrounds */
+
+.bg-main
+{
+  background-image:url('bg/1393740.jpeg');
+  background-size: cover;
+  animation: fade-in .9s;
+}
+
+.bg-main2
+{
+  background-image:url('bg/1393728.jpg');
+  background-size: cover;
+  animation: fade-in .9s;
+}
+
+.bg-main3
+{
+  background-image:url('bg/1267627.jpg');
+  background-size: cover;
+  animation: fade-in .9s;
+}
+
+
+.trans-1
+{
+  background: rgba(8, 8, 8, 0.548);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(56, 55, 55, 0.836);
+  box-shadow: 0 0 80px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius: 9px;
+  opacity: 0.869;
+  background-size: cover;
+  animation: flip 2s;
+}
+
+.btndanger:hover
+{
+  background-color: rgb(252, 5, 5);
+}
+
+.pad-1
+{
+  padding: 9vw;
+}
+.input
+{
+  width: 40vw;
+}
+
+.trans-2
+{
+  background: rgba(0, 0, 0, 0.603);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 80px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius: 9px;
+  opacity: 0.869;
+  animation: flip 1.9s;
+}
+
+h2
+{
+  font-size: 1.2em;
+}
+
+th,td
+{ 
+ animation: flip 2.8s;
+}
+
+table
+{
+  
+}
+
+.bold
+{
+  font-weight: 700;
+  font-size: 50px;
+  color: rgb(245, 3, 3);
+}
+
+/*******************************/
+/*     Animation styles        */
+/*******************************/
+
+@keyframes fade-in
+{
+  0%
+  {
+    opacity: 0;
+  }
+  25%
+  {
+    opacity: 0;
+  }
+  50%
+  {
+    opacity: 1;
+  }
+  100%
+  {
+    opacity: 1;
+  }
+}
+
+
+@keyframes flip
+{
+  0%
+  {
+    transform: rotateY(90deg);
+  }
+  25%
+  {
+    transform: rotateY(90deg);    
+  }
+  50%
+  {
+    transform: rotateY(0deg);
+  }
+  100%
+  {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes slide
+{
+  0%
+  {
+    width: 0vw;
+  }
+  25%
+  {
+    width: 0vw;
+  }
+  50%
+  {
+    width: 0vw;
+  }
+  100%
+  {
+    width: 100vw;
+  }
+}
+
+
+/****************************/
+/*       MEDIA QUERY        */
+/****************************/
+
+@media only screen and (max-width: 510px)
+{
+   .navbar
+   {
+     background: rgba(0, 0, 0, 0.486);  
+   }
+   .navbar-brand
+   {
+     font-size: 23.45px;
+   }
+   .nav-item
+   {
+     font-size: 16px;
+   }
+   .pad-1
+   {
+     display: none;
+   }
+}

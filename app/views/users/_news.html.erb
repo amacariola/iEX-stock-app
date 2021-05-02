@@ -1,0 +1,31 @@
+<div class="card w-75 trans-2">
+  <div class="card-body">
+     <h5 class="card-title">Source: <%= Stock.news_apple.source %></h5>
+     <p class="card-text"><%= Stock.news_apple.summary[0..280] %>...</p>
+     <a><%= link_to "Read More", Stock.news_apple.url, class:"btn btn-primary" %></a>
+  </div>
+</div>
+
+<div class="card w-75 trans-2">
+  <div class="card-body">
+     <h5 class="card-title">Source: <%= Stock.news_microsoft.source %></h5>
+     <p class="card-text"><%= Stock.news_microsoft.summary[0..280] %>...</p>
+     <a><%= link_to "Read More", Stock.news_microsoft.url, class:"btn btn-primary" %></a>
+  </div>
+</div>
+
+<div class="card w-75 trans-2">
+   <div class="card-body">
+     <h5 class="card-title">Source: <%= Stock.news_google.source %></h5>
+     <p class="card-text"><%= Stock.news_google.summary[0..280] %>...</p>
+     <a><%= link_to "Read More", Stock.news_google.url, class:"btn btn-primary" %></a>
+   </div>
+</div>
+
+<div class="card w-75 trans-2">
+   <div class="card-body">
+     <h5 class="card-title">Source: <%= Stock.news_google.source %></h5>
+     <p class="card-text"><%= Stock.news_google.summary[0..280] %>...</p>
+     <a><%= link_to "Read More", Stock.news_google.url, class:"btn btn-primary" %></a>
+   </div>
+</div>

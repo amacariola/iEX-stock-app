@@ -1,0 +1,113 @@
+<div class="jumbotron d-flex align-items-center min-vh-100 bg-dark">
+<%= render 'layouts/navbar' %>
+  <div class = "container-fluid p-3 my-4 text-white trans-2">
+    <h1 class = "is-size-2 has-text-weight-bold mb-4">Stocks Available</h1>
+         <%= render 'layouts/messages' %>
+      <div class = "content">
+       <div class = "table-responsive-sm">
+        <table class="table-sm table-striped table-dark">
+          <thead>
+            <tr>
+              <th class="scope text-white bg-success">Ticker</th>
+              <th>Name</th>
+              <th class="scope text-white bg-danger">Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @stock_brokers.each do |stock| %>
+            <tr>
+              <td><%= stock.ticker %></td>
+              <td><%= stock.name %></td>
+              <td>$<%= stock.latest_price %> USD</td>
+              <td><%= link_to 'Buy', transactions_path(user_id: current_user, ticker: stock.ticker), method: :post, class:"btn btn-primary" %>
+            </tr>
+          <% end %>
+         </tbody>
+        </table>
+       </div>
+      </div>
+  </div> 
+   <div class = "container-fluid p-3 my-4 text-white">
+     <h1 class = "is-size-2 has-text-weight-bold mb-4"><%= current_user.name %>'s Dashboard</h1>
+      <div class="table-responsive-sm">
+       <table class="table-sm table-striped table-dark">     
+         <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>User</th>
+             <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @brought_stocks.all.each do |stock| %>
+            <tr>
+              <td><%= stock.stock.ticker %></td>
+              <td><%= stock.stock.name %></td>
+              <td>$<%= stock.stock.latest_price %> USD</td>
+              <td><%= current_user.name %></ td>
+              <td><%= link_to 'Sell Stock', transaction_path(stock), method: :delete, class:"btn btn-danger" %></td>
+            </tr>
+        <% end %>
+        </tbody>
+       </table>
+      </div>
+   </div> 
+
+   <div class = "container-fluid p-3 my-4 text-white">
+     <h2 class="is-size-2 has-text-weight-bold mb-4"> Account Info</h2>
+     <div class="card w-75 trans-2">
+        <div class="card-body">
+          <h5 class="card-title">Account Holder: <%= current_user.name %></h5>
+          <p class="card-text">Email: <%= current_user.email %></p>
+          <p class="card-text">Joined: <%= current_user.created_at %></p>
+        </div>
+     </div>
+     </br>
+     <h2 class = "is-size-2 has-text-weight-bold mb-4">Recent Purchases</h2>
+      <div class="table-responsive-sm"> 
+       <table class="table-sm table-striped ">     
+         <thead>
+            <tr>
+              <th>Action</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @notifications_recent.each do |stock| %>
+            <tr>
+              <td>Purchased</td>
+              <td><%= stock.stock.name %></td>
+              <td>$<%= stock.stock.latest_price %> USD</td>
+              <td><%= current_user.name %></ td>
+        <% end %>
+        </tbody>
+       </table>
+       </br>
+       <h2 class = "is-size-2 has-text-weight-bold mb-4">Purchases(24 hours)</h2>
+       <table class="table-sm table-striped ">     
+         <thead>
+            <tr>
+              <th>Action</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @notifications_24hrs.each do |stock| %>
+            <tr>
+              <td>Purchased</td>
+              <td><%= stock.stock.name %></td>
+              <td>$<%= stock.stock.latest_price %> USD</td>
+              <td><%= current_user.name %></ td>
+        <% end %>
+        </tbody>
+       </table>
+      </div>
+    </div>
+</div>
