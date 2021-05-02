@@ -54,7 +54,7 @@
            <tr>
              <td class="text-center text-white"><%= stock.symbol %></td>
              <td class="text-center text-white"><%= stock.company_name %></td>
-             <td class="text-center text-white">$<%= stock.iex_realtime_price %>USD</td>
+             <td class="text-center text-white">$<%= stock.latest_price %> USD</td>
              <td class="text-center text-white"><%= stock.change %></td>
            </tr>
           <% end %> 

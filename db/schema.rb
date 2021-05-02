@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_02_045534) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "administrators", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_045534) do
 
   create_table "buyer_stocks", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "user_id", null: false
-    t.integer "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stock_id"], name: "index_buyer_stocks_on_stock_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_045534) do
 
   create_table "transactions", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "user_id", null: false
-    t.integer "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "price"
@@ -60,8 +63,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_045534) do
   end
 
   create_table "user_stocks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stock_id"], name: "index_user_stocks_on_stock_id"
