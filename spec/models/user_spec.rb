@@ -8,7 +8,20 @@ RSpec.describe User, type: :model do
      expect(broker).to be_valid
      expect(broker.errors).to_not be_present
   end
-       
+  
+  it "1-2 Update the password of user" do 
+     user = build(:user)
+     updatepass = user.update(password:"newpassword",password_confirmation:"newpassword")
+     expect(updatepass).to eq(true)
+  end
+  
+  it "1-3 Delete the user account" do
+     user = build(:user)
+     delete = user.destroy
+     expect(delete.errors).to_not be_present
+  end
+
+
   context "Validations" do
     
     before(:all) do
@@ -35,6 +48,8 @@ RSpec.describe User, type: :model do
       expect(user2.errors).to be_present
       expect(user2.errors.to_h.keys).to include(:email)
     end
+
+
 
   end
 end

@@ -1,12 +1,12 @@
 FactoryBot.define do
-  factory :administrator do
-    email { "MyString" }
-    password_digest { "MyString" }
-    first_name { "MyString" }
-    last_name { "MyString" }
-    remember_token { "MyString" }
-    remember_token_expires_at { "2021-05-02 00:55:34" }
-  end
+
+   factory :administrator do
+     email { "test@test.com" }
+     password { "testing" }
+     password_confirmation {"testing"}
+     first_name { "Test" }
+     last_name { "Admin" }
+   end
 
   
     factory :user do
