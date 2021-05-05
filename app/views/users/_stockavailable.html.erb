@@ -1,0 +1,20 @@
+<table class="table-sm table-striped table-dark">
+  <thead>
+    <tr>
+      <th class="scope text-white bg-success">Ticker</th>
+      <th>Name</th>
+      <th class="scope text-white bg-danger">Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @stock_brokers.each do |stock| %>
+    <tr>
+      <td><%= stock.ticker %></td>
+      <td><%= stock.name %></td>
+      <td>$<%= stock.latest_price %> USD</td>
+      <td><%= link_to 'Buy', transactions_path(user_id: current_user, ticker: stock.ticker), method: :post, class:"btn btn-primary" %>
+    </tr>
+   <% end %>
+  </tbody>
+</table>

@@ -10,19 +10,13 @@
 
 
 $theme-colors: (
-    "primary":   #0d1cf0,
+    "primary":   #1aa0e8e3,
     "secondary": #b3b53d
 );
 
-.auth-body
-{
-  background-image:url('bg/1393738.jpg');
-  background-size: cover;
-}
-
 .container
 {
-  background: rgba(255,255,255, 0.2);
+  background: rgba(3, 67, 245, 0.2);
   backdrop-filter: blur(30px);
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 80px rgba(0,0,0,0.2);

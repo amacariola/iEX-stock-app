@@ -56,7 +56,6 @@ html
   height: 100vh;
   background-color:rgba(5, 5, 5, 0.674);
   border: 2px;
-  animation: slide 3s;
 }
 
 /* backgrounds */
@@ -93,7 +92,6 @@ html
   border-radius: 9px;
   opacity: 0.869;
   background-size: cover;
-  animation: flip 2s;
 }
 
 .btndanger:hover
@@ -119,22 +117,11 @@ html
   overflow: hidden;
   border-radius: 9px;
   opacity: 0.869;
-  animation: flip 1.9s;
 }
 
 h2
 {
   font-size: 1.2em;
-}
-
-th,td
-{ 
- animation: flip 2.8s;
-}
-
-table
-{
-  
 }
 
 .bold

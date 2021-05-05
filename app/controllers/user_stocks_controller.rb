@@ -1,5 +1,7 @@
 class UserStocksController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     stock = Stock.check_db(params[:ticker])
     if stock.blank?

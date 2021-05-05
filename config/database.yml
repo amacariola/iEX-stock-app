@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   database: stockdb
-  username: postgres
+  username: haruna
   password: <%= ENV['IEX_DATABASE_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
@@ -22,6 +22,7 @@ development:
 test:
   <<: *default
   database: stock_test
+
 
 production:
   <<: *default

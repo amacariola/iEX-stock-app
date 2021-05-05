@@ -1,0 +1,22 @@
+<table class="table-sm table-striped table-dark">     
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>User</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @brought_stocks.all.each do |stock| %>
+    <tr>
+      <td><%= stock.stock.ticker %></td>
+      <td><%= stock.stock.name %></td>
+      <td>$<%= stock.stock.latest_price %> USD</td>
+      <td><%= current_user.name %></ td>
+      <td><%= link_to 'Sell Stock', transaction_path(stock), method: :delete, class:"btn btn-danger" %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,54 @@
+<div class = "container-fluid p-3 my-4 text-white">
+     <h2 class="is-size-2 has-text-weight-bold mb-4"> Account Info</h2>
+     <div class="card w-75 trans-2">
+        <div class="card-body">
+          <h5 class="card-title">Account Holder: <%= current_user.name %></h5>
+          <p class="card-text">Email: <%= current_user.email %></p>
+          <p class="card-text">Joined: <%= current_user.created_at %></p>
+        </div>
+     </div>
+     </br>
+     <h2 class = "is-size-2 has-text-weight-bold mb-4">Recent Purchases</h2>
+      <div class="table-responsive-sm"> 
+       <table class="table-sm table-striped ">     
+         <thead>
+            <tr>
+              <th>Action</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @notifications_recent.each do |stock| %>
+            <tr>
+              <td>Purchased</td>
+              <td><%= stock.stock.name %></td>
+              <td>$<%= stock.stock.latest_price %> USD</td>
+              <td><%= current_user.name %></ td>
+        <% end %>
+        </tbody>
+       </table>
+       </br>
+       <h2 class = "is-size-2 has-text-weight-bold mb-4">Purchases(24 hours)</h2>
+       <table class="table-sm table-striped ">     
+         <thead>
+            <tr>
+              <th>Action</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @notifications_24hrs.each do |stock| %>
+            <tr>
+              <td>Purchased</td>
+              <td><%= stock.stock.name %></td>
+              <td>$<%= stock.stock.latest_price %> USD</td>
+              <td><%= current_user.name %></ td>
+        <% end %>
+        </tbody>
+       </table>
+      </div>
+    </div>

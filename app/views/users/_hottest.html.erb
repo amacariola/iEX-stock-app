@@ -1,0 +1,40 @@
+<table class = "table table-sm table-striped table-dark">
+  <thead>
+     <tr>
+       <th scope="col" class="text-center text-white bg-success">Symbol</th>
+       <th scope="col" class="text-center text-white">Name</th>
+       <th scope="col" class="text-center text-white bg-danger">Price</th>
+       <th scope="col" class="text-center text-white">Change</th>
+     </tr>
+  </thead>
+  <tbody>
+    <% Stock.market_suggestions.each do |stock| %>
+     <tr>
+       <td class="text-center text-white"><%= stock.symbol %></td>
+       <td class="text-center text-white"><%= stock.company_name %></td>
+       <td class="text-center text-white">$<%= stock.latest_price %> USD</td>
+       <td class="text-center text-white"><%= stock.change %></td>
+     </tr>
+    <% end %> 
+  </tbody>
+  <table class = "table table-sm table-striped table-dark">
+     <thead>
+       <tr>
+         <th scope="col" class="text-center text-white bg-success">Symbol</th>
+         <th scope="col" class="text-center text-white">Delayed</th>
+         <th scope="col" class="text-center text-white bg-danger">Low</th>
+         <th scope="col" class="text-center text-white bg-primary">High</th>
+         <th scope="col" class="text-center text-white">Extended Change</th>
+       </tr>
+     </thead>
+     <tbody>
+      <% Stock.market_suggestions.each do |stock| %>
+       <tr>
+         <td class="text-center text-white"><%= stock.symbol %></td>
+         <td class="text-center text-white"><%= stock.delayed_price %></td>
+         <td class="text-center text-white"><%= stock.low %></td>
+         <td class="text-center text-white"><%= stock.high %></td>
+         <td class="text-center text-white"><%= stock.extended_price %></td>
+       </tr>
+      <% end %> 
+     </tbody>

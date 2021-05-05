@@ -60,5 +60,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'trestle-active_storage'
 gem 'trestle'
+gem 'trestle-sidekiq'
+gem 'redis-rails'
 gem 'trestle-auth'
 gem 'sassc','~> 2.2.1'
